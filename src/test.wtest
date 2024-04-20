@@ -1,0 +1,22 @@
+import empleados.*
+import encargado.*
+
+test "galvan" {
+
+	galvan.gastar(40000)
+	assert.equals(galvan.totalDeuda(), 40000)
+	assert.equals(galvan.totalDinero(), 0)
+	galvan.gastar(80000)
+	assert.equals(galvan.totalDeuda(), 120000)
+	assert.equals(galvan.totalDinero(), 0)
+	galvan.cobrarSueldo()
+	assert.equals(galvan.totalDeuda(), 0)
+	assert.equals(galvan.totalDinero(), 30000)
+	galvan.gastar(250000)
+	assert.equals(galvan.totalDeuda(), 220000)
+	assert.equals(galvan.totalDinero(), 0)
+	galvan.cobrarSueldo()
+	assert.equals(galvan.totalDeuda(), 70000)
+	assert.equals(galvan.totalDinero(), 0)
+}
+
